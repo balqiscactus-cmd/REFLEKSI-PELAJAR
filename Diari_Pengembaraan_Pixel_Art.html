@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diari Pengembaraan | Kembara Rimba Sunnah</title>
+<style>
+:root{--gold:#ffd45b;--deep:#214b2e;--leaf:#477b38;--cream:#fff0c8;--stone:#b8b5a8;--brown:#754522;--ink:#241d12}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:"Trebuchet MS",Arial,sans-serif;background:#173d28}
+.forest{min-height:100vh;padding:25px 14px 40px;background:
+radial-gradient(ellipse at 10% 12%,#9bc65b 0 4%,transparent 17%),
+radial-gradient(ellipse at 90% 18%,#79a944 0 5%,transparent 20%),
+radial-gradient(ellipse at 50% 0%,#c1d879 0 8%,transparent 32%),
+linear-gradient(180deg,#477b3b 0%,#6d9a43 42%,#315e35 100%);position:relative;overflow:hidden}
+.forest:before{content:"";position:absolute;inset:0;opacity:.19;pointer-events:none;background-image:linear-gradient(90deg,transparent 48%,#173d28 49% 51%,transparent 52%),linear-gradient(transparent 48%,#173d28 49% 51%,transparent 52%);background-size:34px 34px}
+.wrap{max-width:900px;margin:auto;position:relative;z-index:1}
+.top{text-align:center;margin:0 auto 20px}
+.ribbon{display:inline-block;background:var(--gold);border:4px solid #8c551f;box-shadow:0 5px 0 #573719;padding:13px 25px;clip-path:polygon(5% 0,95% 0,100% 50%,95% 100%,5% 100%,0 50%);font-weight:1000;letter-spacing:1px;font-size:clamp(20px,4vw,31px);text-shadow:1px 2px #fff1b7}
+.subtitle{color:#fff8d8;font-weight:bold;text-shadow:2px 2px #214b2e;margin:18px auto 0;line-height:1.5}
+.board{background:linear-gradient(135deg,#f9d889,#e9b85e);border:8px ridge #9b5c2b;box-shadow:0 9px 0 #59351d,0 15px 30px #102d1c77;padding:22px;border-radius:5px}
+.section{background:#fff4d6;border:5px solid #9a6937;box-shadow:inset 0 0 0 3px #e2bd79;padding:17px;margin:0 0 16px}
+.section:last-child{margin-bottom:0}
+h2{margin:0 0 11px;color:#315b2d;font-size:19px;text-shadow:1px 1px #e9d39b}
+.hint{font-size:13px;margin:-4px 0 12px;color:#69502b}
+.choices{display:flex;flex-wrap:wrap;gap:9px}
+.choice{flex:1;min-width:135px;border:3px solid #92734c;background:#fff9e8;color:#46351f;padding:11px 8px;font-weight:bold;cursor:pointer;box-shadow:0 4px 0 #80603c;border-radius:3px}
+.choice .emoji{display:block;font-size:27px;margin-bottom:4px}
+.choice.active{background:#d9edb9;border-color:#477b38;box-shadow:0 2px 0 #315b2d;transform:translateY(2px)}
+label.opt{display:flex;align-items:flex-start;gap:9px;margin:7px 0;padding:9px 10px;background:#fff9e8;border:2px solid #d5b77c;cursor:pointer;line-height:1.35}
+input{accent-color:#477b38;width:18px;height:18px;margin-top:2px}
+textarea{width:100%;min-height:105px;border:3px solid #9a6937;background:#fffdf3;padding:12px;font:inherit;resize:vertical}
+textarea:focus{outline:3px solid #a6c878}
+.buttons{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
+.btn{border:4px ridge #77756b;background:linear-gradient(#e1ded1,#aaa99e);color:#17140f;font-weight:1000;padding:12px 22px;box-shadow:0 5px 0 #5d5b52;cursor:pointer;text-decoration:none;text-align:center}
+.btn.send{background:linear-gradient(#ffe47b,#e8ae37);border-color:#986321}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #5d5b52}
+.thanks{display:none;text-align:center;margin-top:22px;padding:23px;background:#fff3c9;border:6px ridge #a66a32;box-shadow:0 7px 0 #59351d}
+.thanks h2{font-size:25px}.small{font-size:12px;color:#fff8d8;text-align:center;line-height:1.5;margin:20px auto 0;text-shadow:1px 1px #214b2e}
+@media(max-width:600px){.board{padding:12px}.section{padding:13px}.buttons{flex-direction:column}.btn{width:100%}.choice{min-width:calc(50% - 9px)}}
+</style></head>
+<body><div class="forest"><main class="wrap">
+<header class="top"><div class="ribbon">DIARI PENGEMBARAAN SAYA</div>
+<p class="subtitle">🌿 Tahniah, penjelajah! Kamu telah menamatkan Kembara Rimba Sunnah. 🌿<br>Jom kongsi pengalaman kamu!</p></header>
+<form id="feedback"><div class="board">
+<section class="section"><h2>⭐ 1. Bagaimanakah pengalaman kamu?</h2><p class="hint">Pilih satu jawapan.</p><div class="choices" id="ratings">
+<button class="choice" type="button" data-rating="Sangat menyeronokkan"><span class="emoji">😍</span>Sangat menyeronokkan</button>
+<button class="choice" type="button" data-rating="Menyeronokkan"><span class="emoji">😊</span>Menyeronokkan</button>
+<button class="choice" type="button" data-rating="Biasa sahaja"><span class="emoji">😐</span>Biasa sahaja</button>
+<button class="choice" type="button" data-rating="Agak sukar"><span class="emoji">😕</span>Agak sukar</button>
+</div></section>
+<section class="section"><h2>🌱 2. Apakah yang kamu pelajari?</h2><p class="hint">Tandakan semua jawapan yang sesuai.</p>
+<label class="opt"><input type="checkbox" value="Senyum dan memberi salam">Senyum dan memberi salam</label>
+<label class="opt"><input type="checkbox" value="Menjaga kebersihan">Menjaga kebersihan</label>
+<label class="opt"><input type="checkbox" value="Adab sebelum makan">Adab sebelum makan</label>
+<label class="opt"><input type="checkbox" value="Amalan sebelum tidur">Amalan sebelum tidur</label>
+<label class="opt"><input type="checkbox" value="Kepentingan mencintai Rasulullah SAW">Kepentingan mencintai Rasulullah SAW</label>
+</section>
+<section class="section"><h2>💚 3. Apakah amalan yang ingin kamu lakukan?</h2><p class="hint">Pilih satu amalan yang ingin kamu cuba setiap hari.</p>
+<label class="opt"><input type="radio" name="practice" value="Senyum kepada orang lain">Senyum kepada orang lain</label>
+<label class="opt"><input type="radio" name="practice" value="Memberi salam">Memberi salam</label>
+<label class="opt"><input type="radio" name="practice" value="Menjaga kebersihan">Menjaga kebersihan</label>
+<label class="opt"><input type="radio" name="practice" value="Mengamalkan adab makan">Mengamalkan adab makan</label>
+<label class="opt"><input type="radio" name="practice" value="Mengamalkan adab sebelum tidur">Mengamalkan adab sebelum tidur</label>
+</section>
+<section class="section"><h2>💬 4. Tinggalkan pesanan untuk kami!</h2><p class="hint">Apakah bahagian yang paling kamu suka? Ada cadangan untuk pengembaraan ini?</p>
+<textarea id="comment" placeholder="Tulis jawapan kamu di sini..."></textarea></section>
+</div><div class="buttons"><button type="button" class="btn" onclick="history.back()">◀ KEMBALI</button><button type="submit" class="btn send">HANTAR REFLEKSI ★</button></div></form>
+<section class="thanks" id="thanks"><div style="font-size:48px">🏆🌳✨</div><h2>SYABAS, WIRA SUNNAH!</h2><p>Terima kasih kerana berkongsi pengalaman. Teruskan mencintai Rasulullah SAW dengan mengamalkan sunnah dalam kehidupan seharian.</p><b>“Cinta Rasulullah, amalkan sunnahnya!”</b></section>
+<p class="small">Nota: Prototaip ini belum menyimpan atau menghantar jawapan kepada guru. Untuk mengumpulkan maklum balas, sambungkan borang kepada Google Forms.</p>
+</main></div>
+<script>
+let rating="";document.querySelectorAll("[data-rating]").forEach(b=>b.addEventListener("click",()=>{rating=b.dataset.rating;document.querySelectorAll("[data-rating]").forEach(x=>x.classList.toggle("active",x===b))}));
+document.getElementById("feedback").addEventListener("submit",e=>{e.preventDefault();if(!rating){alert("Pilih pengalaman kamu dahulu ya!");return}document.getElementById("thanks").style.display="block";document.getElementById("thanks").scrollIntoView({behavior:"smooth",block:"center"})});
+</script></body></html>
